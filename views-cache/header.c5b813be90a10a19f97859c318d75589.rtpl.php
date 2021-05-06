@@ -1,5 +1,4 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
-<<<<<<< HEAD
 <!--
     Hcode Store by hcode.com.br
 -->
@@ -114,11 +113,3 @@
             </div>
         </div>
     </div> <!-- End mainmenu area -->
-=======
-<html>
-	<head>
-			<meta charset="utf-8">
-			<title>Hcode Store</title>
-	</head>
-	<body>
->>>>>>> a7021f02f8c9695df8daacf0b2411bba3f2da8ed

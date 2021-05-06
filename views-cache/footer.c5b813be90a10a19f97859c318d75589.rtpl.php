@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php if(!class_exists('Rain\Tpl')){exit;}?><div class="footer-top-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
@@ -94,10 +93,6 @@
     
     <!-- Slider -->
     <script type="text/javascript" src="/res/site/js/bxslider.min.js"></script>
-	<script type="text/javascript" src="/res/site/js/script.slider.js"></script>
+    <script type="text/javascript" src="/res/site/js/script.slider.js"></script>
   </body>
 </html>
-=======
-<?php if(!class_exists('Rain\Tpl')){exit;}?>	</body>
-</html>	
->>>>>>> a7021f02f8c9695df8daacf0b2411bba3f2da8ed

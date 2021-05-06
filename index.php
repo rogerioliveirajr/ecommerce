@@ -27,6 +27,18 @@ $app->get('/admin', function() {
 
 });
 
+$app->get('/admin/login', function() {
+
+	$page = new PageAdmin([
+		//desabilitando o chamamento automático do header
+		"header"=>false,
+		"footer"=>false
+	]);
+
+	$page->setTpl("login");
+
+});
+
 $app->run();
 
  ?>
