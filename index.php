@@ -20,8 +20,8 @@ $app->get('/', function() {
 	$page->setTpl("index");
 
 });
-
-$app->get('/admin', function() {
+//rota da página de admin
+$app->get('/admin/', function() {
 
 	User::verifyLogin();
     
@@ -41,7 +41,7 @@ $app->get('/admin/login', function() {
 
 	$page->setTpl("login");
 
-});
+});    
 //setando a rota do login e resgatando os dados do input método post
 $app->post('/admin/login', function() {
 

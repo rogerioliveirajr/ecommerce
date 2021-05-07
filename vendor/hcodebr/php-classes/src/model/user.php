@@ -15,7 +15,7 @@ class user extends Model {
 		$sql = new Sql();
 
 		$results = $sql->select("SELECT * FROM tb_users WHERE deslogin = :LOGIN", array(
-			":LOGIN"=>$login,
+			":LOGIN"=>$login
 		));
 		//verificando se encontrou o login
 		if (count ($results) === 0)
@@ -32,7 +32,7 @@ class user extends Model {
 			$user = new User();
 
 			$user->setData($data);
-
+			
 			$_SESSION[User::SESSION] = $user->getValues();
 
 			return $user;
@@ -44,15 +44,16 @@ class user extends Model {
 	}
 
 	public static function verifyLogin($inadmin = true)
-	{
+	{	
+
 		if(
-			!isset($_SESSION[User::SESSION])
+			!isset($_SESSION[User::SESSION]) // verificando se a sessao esta definida  
 			||
-			!$_SESSION[User::SESSION]
+			!$_SESSION[User::SESSION] // verificando se a sessao for falsa
 			||
-			!(int)$_SESSION[User::SESSION]["iduser"] > 0
+			!(int)$_SESSION[User::SESSION]["iduser"] > 0 // verificando o id do usuario 
 			||
-			(bool)$_SESSION[User::SESSION]["inadmin"] !== $inadmin
+			(bool)$_SESSION[User::SESSION]["inadmin"] !== $inadmin  // verificando se o usuario tem acesso a area de admin 	
 		) {
 
 			header("Location: /admin/login");
