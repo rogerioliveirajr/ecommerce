@@ -19,7 +19,7 @@ class user extends Model {
 		));
 		//verificando se encontrou o login
 		if (count ($results) === 0)
-		{		//excessão no escopo principal e não dentro do namspace hcode model (\)
+		{		//excessão no escopo principal e não dentro do namespace hcode model (\)
 			throw new \Exception("Usuário inexistente ou senha inválida");
 		}
 		//resultado  do primeiro registro q ele encontrou 
@@ -120,6 +120,18 @@ class user extends Model {
 
 		$this->setData($results[0]);
 	}
+
+	public function delete()
+	{
+
+		$sql = new Sql();
+
+		$sql->query("CALL sp_users_delete(:iduser)", array(
+			":iduser"=>$this->getiduser()
+		));
+
+	}
+
 }
 
 ?>

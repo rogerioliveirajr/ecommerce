@@ -80,6 +80,15 @@ $app->get("/admin/users/create", function () {
 //rota para deletar usuário
 $app->get("/admin/users/:iduser/delete", function ($iduser) {
 	User::verifyLogin();
+
+	$user = new User();
+
+	$user->get((int) $iduser);
+
+	$user->delete();
+
+	header("Location: /admin/users");
+	exit;
 });
 
 //tela de editar (update)
@@ -133,6 +142,7 @@ $app->post("/admin/users/:iduser", function ($iduser) {
 	exit;
 
 });
+
 
 $app->run();
 
