@@ -143,6 +143,37 @@ $app->post("/admin/users/:iduser", function ($iduser) {
 
 });
 
+//rota esqueceu a senha
+$app->get("/admin/forgot", function() {
+
+	$page = new PageAdmin([
+		"header"=>false,
+		"footer"=>false
+	]);
+
+	$page->setTpl("forgot");
+});
+
+//rota para enviar o codigo de recuperação de senha pegando o email via post
+
+$app->post("/admin/forgot", function() {
+
+	$user = User::getForgot($_POST['email']);
+
+	header("Location: /admin/forgot/sent");
+
+});
+
+$app->get("/admin/forgot/sent", function() {
+
+	$page = new PageAdmin([
+	"header"=>false,
+	"footer"=>false
+	]);
+
+	$page->setTpl("forgot-sent");
+
+});
 
 $app->run();
 
