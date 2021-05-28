@@ -2,6 +2,8 @@
 
 namespace Hcode\Model;
 
+//namespace Hcode\Mailer;
+
 //chamando o banco de dados (sql)
 use \Hcode\DB\Sql;
 use \Hcode\Model;
@@ -69,10 +71,10 @@ class user extends Model {
 	{
 		$_SESSION[User::SESSION] = NULL;
 	}
+
 	//listar usuarios do banco
 	public static function listAll()
 	{
-
 		$sql = new Sql();
 
 		 return $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) ORDER BY b.desperson" );

@@ -12,15 +12,13 @@ use Rain\Tpl;
 class Mailer {
 
 	const USERNAME = "tialcabras@gmail.com";
-	const PASSWORD = "<?password?>";
+	const PASSWORD = "Alca@bras2020";
 	const NAME_FROM = "Hcode Store";
 
 	private $mail;
 
 	public function __construct($toAddress, $toName, $subject, $tplName, $data = array())
 	{
-
-	
 
 	$config = array(
 		"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]."/views/email/",

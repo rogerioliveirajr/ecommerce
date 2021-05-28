@@ -53,10 +53,20 @@ $app->post('/admin/login', function() {
 	exit;
 });
 
+$app->get('/admin/logout', function() {
+
+	User::logout();
+
+	header("Location: /admin/login");
+	exit;
+
+});
+
+
 //tela q lista todos usuários
 $app->get("/admin/users", function () { 
 	
-	User::verifyLogin();
+	User::logout();
 
 	$users = User::listAll();
 
@@ -114,6 +124,11 @@ $app->post("/admin/users/create", function () {
 	$user = new User();
 
 	$_POST["inadmin"] = (isset($_POST["inadmin"]))?1:0;
+
+	 $_POST['despassword'] = password_hash($_POST["despassword"], PASSWORD_DEFAULT, [
+ 
+ 	"cost"=>12
+ 	]);
 
 	$user->setData($_POST);
 
